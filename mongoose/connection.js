@@ -4,14 +4,15 @@ const mongoose = require('mongoose'); // Importamos mongoose
 
 const mongodbPort = '27017';
 const mongodbTargetDB = 'sensorData';
+const mongodbUser = 'sensorDataWriterAndReader';
+const mongodbPassword = 'hgfCkbPg9x8QXXbs';
 
 // * MONGOOSE CONNECTION
 
 let connectToDb = async () => {
-
     /* Nuestro servidor está configurado para usar MongoDB en LOCAL */
 
-    const dev_db_url = `mongodb://127.0.0.1:${mongodbPort}/${mongodbTargetDB}`;
+    const dev_db_url = `mongodb+srv://${mongodbUser}:${mongodbPassword}@cluster0.bvu5kst.mongodb.net/${mongodbTargetDB}`;
 
     const mongoDB = process.env.MONGODB_URI || dev_db_url; // Indicamos que para conectarnos a MongoDB, podemos usar la variable de entorno que queramos (no hemos visto aún variables de entorno, pero lo dejo para testar la aplicación) o, la variable dev_db_url previamente definida.
 
